@@ -181,11 +181,11 @@ fmt ex7c // "(((x + y) + z) + v)"
 
 let rec simplify (e : aexpr) = 
     match e with 
-    | ACstI _ -> e
-    | AVar _  -> e
+    | ACstI x -> e
+    | AVar x  -> e
     |Add (x,y) ->
         let x' = simplify x
-        let y' = simplify y
+        let y' = simplify y // recursively simplify 
         match x', y' with
         | ACstI 0,  b -> b
         |  b, ACstI 0 -> b
@@ -210,11 +210,42 @@ let rec simplify (e : aexpr) =
             | ACstI 0, a ->ACstI 0
             |a,b -> Mul(a,b)
 
-        
-    
+        // jaja den er simpel nok, wtf?! - nis men det er meget cool sys jeg
+        // har ikke testet den så det må i lige gøre
 
 
-// 1.2.5  fmt without parenthesis
+//  1.2.5 Write an F# function to perform symbolic differentiation of simple arithmetic
+// expressions (such as aexpr) with respect to a single variable
+
+let rec Sdiff e =
+    match e with 
+    | ACstI y  -> ACstI 0 // constants become 0 handles both + and minus 
+    | AVar y -> ACstI   1 // vars become 1
+    | Add (a,b) -> 
+        let a' = Sdiff a
+        let b' = Sdiff b
+        Add(a',b')
+    | Sub (a,b) -> 
+        let a' = Sdiff a
+        let b' = Sdiff b
+        Sub(a',b')
+    | Mul(a,b) -> 
+        let a' = Sdiff a
+        let b' = Sdiff b
+        Add (Mul(a' , b), Mul(a, b')) // formula for mulitplication when Sdiffing it would have been easy
+
+// detect rules. ()
+
+
+// 1.3  fmt without parenthesis
+
+// ved godt vi ikke skulle lave den men ville bare lige huske hvordan den ser ud.
+
+ //det sådan med precendence ting hvis det gange 
+
+
+
+
 
 // n values above? or free values? right?
 (*
