@@ -1,0 +1,5 @@
+C:\Users\niels\UniFiles\5_semester\Programsdata\Assignments\Assignments\assignment1\Intro\obj\Debug\net8.0\intro.fsproj.AssemblyReference.cache
+C:\Users\niels\UniFiles\5_semester\Programsdata\Assignments\Assignments\assignment1\Intro\obj\Debug\net8.0\intro.AssemblyInfoInputs.cache
+C:\Users\niels\UniFiles\5_semester\Programsdata\Assignments\Assignments\assignment1\Intro\obj\Debug\net8.0\intro.AssemblyInfo.fs
+C:\Users\niels\UniFiles\5_semester\Programsdata\Assignments\Assignments\assignment1\Intro\obj\Debug\net8.0\intro.fsproj.CoreCompileInputs.cache
+C:\Users\niels\UniFiles\5_semester\Programsdata\Assignments\Assignments\assignment1\Intro\obj\Debug\net8.0\intro.sourcelink.json
