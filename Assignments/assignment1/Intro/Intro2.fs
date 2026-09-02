@@ -127,7 +127,7 @@ let e2v2 = eval e2 [("a", 314)];;
 let e3v  = eval e3 env;;
 
 //1.2
-//1.2.1
+//1.2.1  
 
     type aexpr = 
         | ACstI of int                    
@@ -156,6 +156,67 @@ let ex7av = evalA ex7a  [("v", 5);("w", 6); ("z", 2)] // 5 - (6 + 2) = -3
 let ex7bv = evalA ex7b  [("v", 8);("w", 1); ("z", 9)] // 2 * (8 - (1 + 9)) = 2 * (8 - 10) = 2 * -2 = -4
 let ex7cv = evalA ex7c [("x", 5);("y", 6); ("z", 2);("v",10)] // 5 + 6 + 2 + 10 = 23
 
+//1.2.3
+let rec fmt (e : aexpr) : string =
+    match e with
+        | ACstI e -> string e
+        | AVar e -> e
+        | Add(e1, e2) -> "(" + fmt e1 + " + " + fmt e2 + ")"
+        | Sub(e1,e2)  -> "(" + fmt e1 + " - " + fmt e2 + ")"
+        | Mul(e1,e2) -> "(" + fmt e1 + " * " +  fmt e2 + ")" 
+
+fmt ex7a // "(v - (w + z))"
+fmt ex7b // "(2 * (v - (w + z)))"
+fmt ex7c // "(((x + y) + z) + v)"
+
+// 1.2.4
+
+// let rec simplify (e : aexpr) = // it can never be easy
+//     match e with
+//     |Add (x,y) when x = 0 || y = 0 -> e 
+//     |Sub (x,y) when x = 0 || y = 0 || x = y-> e 
+//     |Mul (x,y) when x = 1 || y = 1 -> e
+//     |Mul (x,y: aexpr) when 0 = 1 || y = 0 -> e
+//     |_ -> e  // catches when there are non? | or || for or? only works for csti? so i have to recursive call on each x and y?
+
+let rec simplify (e : aexpr) = 
+    match e with 
+    | ACstI _ -> e
+    | AVar _  -> e
+    |Add (x,y) ->
+        let x' = simplify x
+        let y' = simplify y
+        match x', y' with
+        | ACstI 0,  b -> b
+        |  b, ACstI 0 -> b
+        |  a, b -> Add(a, b)
+
+    |Sub (x,y) ->
+        let x' = simplify x
+        let y' = simplify y
+        match x', y' with
+        | ACstI 0, y -> y
+        |  y, ACstI 0 -> y
+        | a,b when a = b ->ACstI 0
+        |(a,b) -> Sub(a,b)
+
+    |Mul (x,y) ->
+        let x' = simplify x
+        let y' = simplify y
+        match x',y' with
+            | ACstI 1, a -> a
+            | a,ACstI 1 -> a
+            |a, ACstI 0 ->ACstI 0
+            | ACstI 0, a ->ACstI 0
+            |a,b -> Mul(a,b)
+
+        
+    
+
+
+// 1.2.5  fmt without parenthesis
+
+// n values above? or free values? right?
 (*
 Questions, 
 should we make expr ane axepr mutally recursive? they are very similar and they could be interchanged for eachother?
@@ -173,9 +234,6 @@ Should we make an second eval, Aeval for arithmetic expressions?  yeah we should
 
 
 *)
-
-
-
     // f(x) = 2*x^2 + x42let ex19a = Sub(Var "v", Add(Var "w", Var "z"))
 // let ex19b = Mul(CstI 2, Sub(Var "v", Add(Var "w", Var "z")))
 // let ex19c = Add(Add(Add(Var "x", Var "y"), Var "z"), Var "v")
