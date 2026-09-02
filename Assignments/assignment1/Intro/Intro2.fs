@@ -229,7 +229,7 @@ let rec Sdiff e =
         let a' = Sdiff a
         let b' = Sdiff b
         Sub(a',b')
-    | Mul(a,b) -> 
+    | Mul(a,b) ->  // no POwer rule needed its just nestet muls
         let a' = Sdiff a
         let b' = Sdiff b
         Add (Mul(a' , b), Mul(a, b')) // formula for mulitplication when Sdiffing it would have been easy
@@ -237,11 +237,6 @@ let rec Sdiff e =
 // detect rules. ()
 
 
-// 1.3  fmt without parenthesis
-
-// ved godt vi ikke skulle lave den men ville bare lige huske hvordan den ser ud.
-
- //det sådan med precendence ting hvis det gange 
 
 
 
