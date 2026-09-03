@@ -51,6 +51,7 @@ let rec eval e (env : (string * int) list) : int =
     | CstI i            -> i
     | Var x             -> lookup env x 
     | Let(x, erhs, ebody) -> 
+        x :: tail -> 
       let xval = eval erhs env
       let env1 = (x, xval) :: env 
       eval ebody env1
