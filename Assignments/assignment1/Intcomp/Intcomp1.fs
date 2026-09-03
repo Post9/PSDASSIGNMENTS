@@ -44,7 +44,7 @@ let rec lookup env x =
     | []        -> failwith (x + " not found")
     | (y, v)::r -> if x=y then v else lookup r x;;
 
-(*2.1*)
+/// 2.1
 let rec eval e (env : (string * int) list) : int =
     match e with
     | CstI i            -> i
@@ -59,6 +59,9 @@ let rec eval e (env : (string * int) list) : int =
     | Prim("*", e1, e2) -> eval e1 env * eval e2 env
     | Prim("-", e1, e2) -> eval e1 env - eval e2 env
     | Prim _            -> failwith "unknown primitive";;
+
+
+// ----------------------------------------
 
 let run e = eval e [];;
 let res = List.map run [e1;e2;e3;e4;e5;e7]  (* e6 has free variables *)
@@ -208,15 +211,23 @@ let rec minus (xs, ys) =
     | x::xr -> if mem x ys then minus(xr, ys)
                else x :: minus (xr, ys);;
 
-(* Find all variables that occur free in expression e *)
+/// 2.2
 
 let rec freevars e : string list =
     match e with
     | CstI i -> []
     | Var x  -> [x]
-    | Let(LetBinds, ebody) -> 
-          union (freevars erhs, minus (freevars ebody, [x]))
-    | Prim(ope, e1, e2) -> union (freevars e1, freevars e2);;
+    | Let(binds, ebody) -> freevarsLet binds ebody
+    | Prim(ope, e1, e2) -> union (freevars e1, freevars e2)
+
+
+and freevarsLet binds ebody : string list =
+    match binds with
+    | [] -> freevars ebody
+    | (x, erhs) :: rest ->
+        union (freevars erhs, minus (freevarsLet rest ebody, [x]))
+
+/// --------------------------------------------------------------
 
 (* Alternative definition of closed *)
 
@@ -242,16 +253,21 @@ let rec getindex vs x =
     | []    -> failwith "Variable not found"
     | y::yr -> if x=y then 0 else 1 + getindex yr x;;
 
-(* Compiling from expr to texpr *)
-
+/// 2.3
 let rec tcomp (e : expr) (cenv : string list) : texpr =
     match e with
     | CstI i -> TCstI i
     | Var x  -> TVar (getindex cenv x)
-    | Let(x, erhs, ebody) -> 
-      let cenv1 = x :: cenv 
-      TLet(tcomp erhs cenv, tcomp ebody cenv1)
-    | Prim(ope, e1, e2) -> TPrim(ope, tcomp e1 cenv, tcomp e2 cenv);;
+    | Let(binds, ebody) -> tcompLet binds ebody cenv
+    | Prim(ope, e1, e2) -> TPrim(ope, tcomp e1 cenv, tcomp e2 cenv)
+
+and tcompLet binds ebody cenv : texpr =
+    match binds with
+    | [] -> tcomp ebody cenv
+    | (x, erhs) :: rest ->
+        TLet(tcomp erhs cenv, tcompLet rest ebody (x :: cenv))
+
+/// --------------------------------------------
 
 (* Evaluation of target expressions with variable indexes.  The
    run-time environment renv is a list of variable values (ints).  *)
@@ -385,3 +401,18 @@ let intsToFile (inss : int list) (fname : string) =
 
 
 (* -----------------------------------------------------------------  *)
+
+// 2.1 — let x1 = 5+7 x2 = x1*2 in x1+x2 end
+let ex21 = Let([("x1", Prim("+", CstI 5, CstI 7));
+                ("x2", Prim("*", Var "x1", CstI 2))],
+               Prim("+", Var "x1", Var "x2"))
+eval ex21 [];;        // 36
+freevars ex21;;       // []
+
+// 2.2 — let x1 = x1+7 in x1+8 end
+let ex22 = Let([("x1", Prim("+", Var "x1", CstI 7))], Prim("+", Var "x1", CstI 8))
+freevars ex22;;       // ["x1"]
+
+// 2.3
+teval (tcomp ex21 []) [];;   // 36, same as eval
+teval (tcomp e2 []) [];;     // 2217, checks shadowing
