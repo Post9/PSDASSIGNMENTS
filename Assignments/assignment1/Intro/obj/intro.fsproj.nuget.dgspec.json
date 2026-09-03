@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\assignment1\\Intro\\intro.fsproj": {}
+    "c:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\assignment1\\Intro\\intro.fsproj": {}
   },
   "projects": {
-    "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\assignment1\\Intro\\intro.fsproj": {
+    "c:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\assignment1\\Intro\\intro.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\assignment1\\Intro\\intro.fsproj",
+        "projectUniqueName": "c:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\assignment1\\Intro\\intro.fsproj",
         "projectName": "intro",
-        "projectPath": "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\assignment1\\Intro\\intro.fsproj",
+        "projectPath": "c:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\assignment1\\Intro\\intro.fsproj",
         "packagesPath": "C:\\Users\\niels\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\assignment1\\Intro\\obj\\",
+        "outputPath": "c:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\assignment1\\Intro\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
