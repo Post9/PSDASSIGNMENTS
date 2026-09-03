@@ -211,6 +211,7 @@ let rec simplify (e : aexpr) =
             |a,b -> Mul(a,b)
 
         // jaja den er simpel nok, wtf?! - nis men det er meget cool sys jeg
+        
         // har ikke testet den så det må i lige gøre
 
 
@@ -232,7 +233,7 @@ let rec Sdiff e =
     | Mul(a,b) ->  // no POwer rule needed its just nestet muls
         let a' = Sdiff a
         let b' = Sdiff b
-        Add (Mul(a' , b), Mul(a, b')) // formula for mulitplication when Sdiffing it would have been easy
+        Add (Mul(a' , b),  Mul(a, b')) // formula for mulitplication when Sdiffing it would have been easy
 
 // detect rules. ()
 
