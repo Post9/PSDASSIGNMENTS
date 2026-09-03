@@ -82,11 +82,11 @@ class Prim extends Expr {
 
 }
 
-//////////// -------------------------------------------------------- 1.4.1
-
+//////////// -------------------------------------------------------- 1.4.1 & 1.4.5
 abstract class Aexpr  {
   public abstract String toString();
   public abstract int Aeval(Map<String,Integer> env);
+  public abstract Aexpr simplify();
   
 }
 
@@ -101,7 +101,13 @@ class ACstI extends Aexpr {
     return Integer.toString(i);
   }
 
-  public int Aeval(Map<String, Integer>)
+  public int Aeval(Map<String, Integer> env) {
+    return i;
+  }
+
+  public Aexpr simplify() {
+    return this; 
+  } 
 }
   
 class AVar extends Aexpr{ 
@@ -115,11 +121,19 @@ class AVar extends Aexpr{
     return name;
   }
 
+  public int Aeval(Map<String, Integer> env) {
+    return env.get(name);
+  }
+
+  public Aexpr simplify() {
+    return this;
+  }
 }
 
 abstract class Binop extends Aexpr {
   protected Aexpr e1, e2;
   protected String ope;
+
   public Binop(Aexpr e1, Aexpr e2, String ope) {
     this.e1 = e1; this.e2 = e2; this.ope = ope;
   }
@@ -127,24 +141,64 @@ abstract class Binop extends Aexpr {
   public String toString() {
     return "(" + e1.toString() + " " + ope + " " + e2.toString() + ")";
   }
-   
 }
 
 class Add extends Binop {
+
   public Add(Aexpr e1, Aexpr e2) {
     super(e1, e2, "+");
   }
+
+  public int Aeval(Map<String, Integer> env) {
+    return e1.Aeval(env) + e2.Aeval(env);
+  }
+
+  public Aexpr simplify() {
+    Aexpr s1 = e1.simplify();
+    Aexpr s2 = e2.simplify();
+    if (s1 instanceof ACstI c && c.i == 0) return s2; // 0 + e
+    if (s2 instanceof ACstI c && c.i == 0) return s1; // e + 0
+
+    return new Add(s1, s2);
+  }
+
 }
 
 class Sub extends Binop {
   public Sub(Aexpr e1, Aexpr e2) {
     super(e1, e2, "-");
   }
+  
+  public int Aeval(Map<String, Integer> env) {
+    return e1.Aeval(env) - e2.Aeval(env);
+  }
+
+  public Aexpr simplify() {
+    Aexpr s1 = e1.simplify();
+    Aexpr s2 = e2.simplify();
+    if (s2 instanceof ACstI c && c.i == 0) return s1; // e - 0
+
+    return new Sub(s1, s2);
+  }
 }
 
 class Mul extends Binop {
   public Mul(Aexpr e1, Aexpr e2) {
     super(e1, e2, "*");
+  }
+
+  public int Aeval(Map<String, Integer> env){
+    return e1.Aeval(env) * e2.Aeval(env);
+  }
+
+  public Aexpr simplify() {
+    Aexpr s1 = e1.simplify();
+    Aexpr s2 = e2.simplify();
+    if (s1 instanceof ACstI c && c.i == 0) return new ACstI(0); // 0*e
+    if (s2 instanceof ACstI c && c.i == 0) return new ACstI(0); // e*0
+    if (s1 instanceof ACstI c && c.i == 1) return s2; // 1*e
+    if (s2 instanceof ACstI c && c.i == 1) return s1; // e*1
+    return new Mul(s1, s2);
   }
 }
 
@@ -182,7 +236,12 @@ public class SimpleExpr {
     Aexpr e7 = new Add(new ACstI(17), new Mul(new ACstI(14), new AVar("z")));
     System.out.println(e7.toString());  
 
+    /// 1.4.3
+    Map<String,Integer> env1 = new HashMap<String,Integer>();
+    env1.put("z", 5);
 
-  
+    Aexpr e8 = new Add(new ACstI(17), new Mul(new ACstI(14), new AVar("z")));
+    System.out.println(e8 + " = " + e8.Aeval(env1));   // (17 + (14 * z)) = 87
+
   }
 }
