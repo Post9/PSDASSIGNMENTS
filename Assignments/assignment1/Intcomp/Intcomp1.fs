@@ -10,17 +10,15 @@ module Intcomp1
 type expr = 
   | CstI of int
   | Var of string
-  | Let of string * expr * expr
+  | Let of (string * expr) list * expr (*CHANGED*)
   | Prim of string * expr * expr;;
 
 (* Some closed expressions: *)
 
 let e0 = Prim("+", CstI 17, Prim("+", CstI 5, CstI 7));;
-let e1 = Let("z", CstI 17, Prim("+", Var "z", Var "z"));;
+let e1 = Let([("z", CstI 17); ("y", CstI 3)], Prim("+", Var "z", Var "y"));;
 
-let e2 = Let("z", CstI 17, 
-             Prim("+", Let("z", CstI 22, Prim("*", CstI 100, Var "z")),
-                       Var "z"));;
+let e2 = Let([("z", CstI 17)], Prim("+", (Let([("z", CstI 22)], Prim("*", CstI 100, Var "z"))), Var "z"));;
 
 let e3 = Let("z", Prim("-", CstI 5, CstI 4), 
              Prim("*", CstI 100, Var "z"));;
@@ -46,14 +44,17 @@ let rec lookup env x =
     | []        -> failwith (x + " not found")
     | (y, v)::r -> if x=y then v else lookup r x;;
 
+(*2.1*)
 let rec eval e (env : (string * int) list) : int =
     match e with
     | CstI i            -> i
     | Var x             -> lookup env x 
-    | Let(x, erhs, ebody) -> 
-      let xval = eval erhs env
-      let env1 = (x, xval) :: env 
-      eval ebody env1
+    | Let(LetBinds, ebody) ->  (*LetBinds is the list of Let-bindings*)
+      let env1 = List.fold(fun envAcc (x, erhs) -> 
+                            let xval = eval erhs envAcc (*evaluate the expression from the let-binding*)
+                            (x, xval) :: envAcc) (*put the name and evaluated expr in the enviroment accumilater*)
+                          env LetBinds (*Set current enviroment as start for accumilator*)
+      eval ebody env1 
     | Prim("+", e1, e2) -> eval e1 env + eval e2 env
     | Prim("*", e1, e2) -> eval e1 env * eval e2 env
     | Prim("-", e1, e2) -> eval e1 env - eval e2 env
@@ -213,7 +214,7 @@ let rec freevars e : string list =
     match e with
     | CstI i -> []
     | Var x  -> [x]
-    | Let(x, erhs, ebody) -> 
+    | Let(LetBinds, ebody) -> 
           union (freevars erhs, minus (freevars ebody, [x]))
     | Prim(ope, e1, e2) -> union (freevars e1, freevars e2);;
 
