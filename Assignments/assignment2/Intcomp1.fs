@@ -349,7 +349,33 @@ type sinstr =
   | SMul                                (* pop args, push product *)
   | SPop                                (* pop value/unbind var   *)
   | SSwap;;                             (* exchange top and next  *)
- 
+
+(* 2.4 Assemlber*)
+(*
+SCst 0 X
+SVar 1 X
+SAdd 2
+SSub 3
+SMul 4
+SPop 5
+SSwap 6
+*)
+
+let rec assemble (inss : sinstr list) : int list =
+    // Encode each instruction as its numeric opcode and operands.
+    match inss with
+    | (SCstI x) :: tail -> 0 :: x :: assemble tail
+    | (SVar x) :: tail -> 1 :: x :: assemble tail
+    | SAdd :: tail -> 2 :: assemble tail
+    | SSub :: tail -> 3 :: assemble tail
+    | SMul :: tail -> 4 :: assemble tail
+    | SPop :: tail -> 5 :: assemble tail
+    | SSwap :: tail -> 6 :: assemble tail
+    | [] -> []
+
+
+
+
 let rec seval (inss : sinstr list) (stack : int list) =
     match (inss, stack) with
     | ([], v :: _) -> v
@@ -364,8 +390,6 @@ let rec seval (inss : sinstr list) (stack : int list) =
     | _ -> failwith "seval: too few operands on stack";;
 
 
-(* A compile-time variable environment representing the state of
-   the run-time stack. *)
 
 type stackvalue =
   | Value                               (* A computed value *)
