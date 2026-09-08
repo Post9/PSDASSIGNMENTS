@@ -51,6 +51,20 @@ pression grammar at the end of Sect. 3.6.6, corresponding to ExprPar.fsy. Take
 note of the sequence of grammar rules (A–I) used.
 let z = (17) in z + 2 * 3 end EOF
 
+Solution:
+
+    main
+    => Expr EOF                                          A
+    => let NAME eq Expr in Expr end EOF                  F
+    => let NAME eq Expr in Expr + Expr end EOF           H
+    => let NAME eq Expr in Expr + Expr * Expr end EOF    G
+    => let NAME eq Expr in Expr + Expr * 3 end EOF       C
+    => let NAME eq Expr in Expr + 2 * 3 end EOF          C
+    => let NAME eq Expr in z + 2 * 3 end EOF             B
+    => let NAME eq ( Expr ) in z + 2 * 3 end EOF         E
+    => let NAME eq (17) in z + 2 * 3 end EOF             C
+    => let z eq (17) in z + 2 * 3 end EOF                B
+
 
 
 Exercise 3.4 Draw the above derivation as a tree
