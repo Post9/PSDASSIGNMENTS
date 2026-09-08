@@ -40,7 +40,7 @@ intermediate language: what integer represents what instruction.
 
 use $ for dfa+ or to only accept matches that have been through the regex?
 
-^b* starts on zero ro many bs
+^b* starts on zero or many bs
 (ab+) one a many b. repeat.
 *a? end on perhaps end on a
 
