@@ -157,3 +157,19 @@ val it: Absyn.expr =
 
 >
 
+
+3.7 
+
+added 
+
+if conditions for ? and : 
+in absyn
+in ExprLex.fsl and ExprPar.fsy
+> open Parse;;
+> fromString "if 1 then 2 else 3";;
+val it: Absyn.expr = If (CstI 1, CstI 2, CstI 3)
+
+> fromString "1 ? 2 : 3";;
+val it: Absyn.expr = If (CstI 1, CstI 2, CstI 3)
+
+> 
