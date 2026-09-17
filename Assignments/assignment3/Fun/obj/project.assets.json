@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net10.0": {
-      "FSharp.Core/10.0.103": {
+      "FSharp.Core/10.1.203": {
         "type": "package",
         "compile": {
           "lib/netstandard2.1/FSharp.Core.dll": {
@@ -85,15 +85,15 @@
     }
   },
   "libraries": {
-    "FSharp.Core/10.0.103": {
-      "sha512": "GfQInb74eDh9JZ8wx4+t/lOrH1uRqZvneuViVJ8CwbQwmtyyZoeGuzRayL01MNAsm8B6eRenWwJThu01EFPeKg==",
+    "FSharp.Core/10.1.203": {
+      "sha512": "I2MFk72yHqfgI594gKFigq8PVIso0Mh1ZUgG9R4n8gyYQ4IwpBxmvecfjnKA7iMLdVHYULB70PsLwYW/K76gew==",
       "type": "package",
-      "path": "fsharp.core/10.0.103",
+      "path": "fsharp.core/10.1.203",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "fsharp.core.10.0.103.nupkg.sha512",
+        "fsharp.core.10.1.203.nupkg.sha512",
         "fsharp.core.nuspec",
         "lib/netstandard2.0/FSharp.Core.dll",
         "lib/netstandard2.0/FSharp.Core.xml",
@@ -234,29 +234,29 @@
   },
   "projectFileDependencyGroups": {
     "net10.0": [
-      "FSharp.Core >= 10.0.103",
+      "FSharp.Core >= 10.1.203",
       "FsLexYacc >= 11.3.0",
       "FsLexYacc.Runtime >= 11.3.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\niels\\.nuget\\packages\\": {},
+    "C:\\Users\\Rasmus\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\assignment3\\Fun\\parse.fsproj",
+      "projectUniqueName": "C:\\Users\\Rasmus\\Documents\\5. Semester\\Programmer som data\\AssigmentWork\\PSDASSIGNMENTS\\Assignments\\assignment3\\Fun\\parse.fsproj",
       "projectName": "parse",
-      "projectPath": "c:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\assignment3\\Fun\\parse.fsproj",
-      "packagesPath": "C:\\Users\\niels\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\assignment3\\Fun\\obj\\",
+      "projectPath": "C:\\Users\\Rasmus\\Documents\\5. Semester\\Programmer som data\\AssigmentWork\\PSDASSIGNMENTS\\Assignments\\assignment3\\Fun\\parse.fsproj",
+      "packagesPath": "C:\\Users\\Rasmus\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Rasmus\\Documents\\5. Semester\\Programmer som data\\AssigmentWork\\PSDASSIGNMENTS\\Assignments\\assignment3\\Fun\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\niels\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Rasmus\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -265,7 +265,8 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\sdk\\10.0.103\\FSharp\\library-packs": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
+        "C:\\Program Files\\dotnet\\sdk\\10.0.203\\FSharp\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -279,7 +280,7 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.100"
+      "SdkAnalysisLevel": "10.0.200"
     },
     "frameworks": {
       "net10.0": {
@@ -288,7 +289,7 @@
           "FSharp.Core": {
             "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
             "target": "Package",
-            "version": "[10.0.103, )",
+            "version": "[10.1.203, )",
             "generatePathProperty": true
           },
           "FsLexYacc": {
@@ -318,7 +319,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.203/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

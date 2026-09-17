@@ -490,7 +490,7 @@ let _fsyacc_reductions = lazy [|
                 (
                    (
 # 59 "FunPar.fsy"
-                                                               Letfun(_2, _3, _5, _7) 
+                                                               Letfun(_2, [_3], _5, _7) 
                    )
 # 59 "FunPar.fsy"
                  : Absyn.expr));
@@ -513,7 +513,7 @@ let _fsyacc_reductions = lazy [|
                 (
                    (
 # 64 "FunPar.fsy"
-                                                               Call(_1, _2)           
+                                                               Call(_1, [_2])           
                    )
 # 64 "FunPar.fsy"
                  : Absyn.expr));
@@ -525,7 +525,7 @@ let _fsyacc_reductions = lazy [|
                 (
                    (
 # 65 "FunPar.fsy"
-                                                               Call(_1, _2)           
+                                                               Call(_1, [_2])           
                    )
 # 65 "FunPar.fsy"
                  : Absyn.expr));
