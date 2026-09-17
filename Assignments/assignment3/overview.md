@@ -44,6 +44,25 @@ Expr.fs, to define a function compString : string -> sinstr list
 that parses a string as an expression and compiles it to stack machine code
 
 
+## Exercise 3.7
+
+Extend the expression language abstract syntax and the lexer and parser specifications
+with conditional expressions. The abstract syntax should be `If(e1, e2, e3)`, so modify
+file `Absyn.fs` as well as `ExprLex.fsl` and file `ExprPar.fsy`. The concrete syntax may
+be the keyword-laden F#/ML-style:
+
+```
+if e1 then e2 else e3
+```
+
+or the more light-weight C/C++/Java/C#-style:
+
+```
+e1 ? e2 : e3
+```
+
+Some documentation for fslex and fsyacc is found in this chapter and in Expert F# [17].
+
 ## Exercise 4.1
 
  Get archive fun.zip from the homepage and unpack to directory
