@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\assignment3\\Expr\\parse.fsproj": {}
+    "c:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\assignment3\\Expr\\parse.fsproj": {}
   },
   "projects": {
-    "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\assignment3\\Expr\\parse.fsproj": {
+    "c:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\assignment3\\Expr\\parse.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\assignment3\\Expr\\parse.fsproj",
+        "projectUniqueName": "c:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\assignment3\\Expr\\parse.fsproj",
         "projectName": "parse",
-        "projectPath": "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\assignment3\\Expr\\parse.fsproj",
+        "projectPath": "c:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\assignment3\\Expr\\parse.fsproj",
         "packagesPath": "C:\\Users\\niels\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\assignment3\\Expr\\obj\\",
+        "outputPath": "c:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\assignment3\\Expr\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

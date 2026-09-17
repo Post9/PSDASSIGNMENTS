@@ -333,3 +333,7 @@ let s3 = scomp e3 []
 let intsToFile (inss : int list) (fname : string) = 
     let text = String.concat " " (List.map string inss)
     System.IO.File.WriteAllText(fname, text);;
+
+    (* 3.6 *)
+let compString (s : string) : sinstr list = scomp (fromString s) []
+module Fun
