@@ -31,12 +31,28 @@ let fromFile (filename : string) =
                failwithf "%s in file %s near line %d, column %d\n" 
                   (exn.Message) filename (pos.Line+1) pos.Column
 
-(* Exercise it *)
+
+(* Exercise 4.2*)
 
 let e1 = fromString "5+7";;
 let e2 = fromString "let f x = x + 7 in f 2 end";;
 
+
+
+let e3 = fromString "let f x = if x = 1 then x else x + f(x - 1) in f 1000 end"
+
+// what do they mean
+
 (* Examples in concrete syntax *)
+
+let e4 = fromString "let pow n = if n = 0 then 1 else 3 * pow (n - 1) in pow 8 end"
+
+// e5: 3^0 + 3^1 + ... + 3^11. pow n gives 3^n, g k adds pow k to g (k-1) until k = 0. 
+let e5 = fromString "let pow n = if n = 0 then 1 else 3 * pow (n - 1) in let g k = if k = 0 then 1 else pow k + g (k - 1) in g 11 end end"
+
+// e6: 1^8 + 2^8 + ... + 10^8. p x gives x^8 (functions only take one argument, so no pow x 8),
+// g k adds p k to g (k-1) until k = 0. Result 
+let e6 = fromString "let p x = x * x * x * x * x * x * x * x in let g k = if k = 0 then 0 else p k + g (k - 1) in g 10 end end"
 
 let ex1 = fromString 
             @"let f1 x = x + 1 in f1 12 end";;

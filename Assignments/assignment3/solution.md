@@ -172,4 +172,51 @@ val it: Absyn.expr = If (CstI 1, CstI 2, CstI 3)
 > fromString "1 ? 2 : 3";;
 val it: Absyn.expr = If (CstI 1, CstI 2, CstI 3)
 
-> 
+>
+
+4.1 
+
+> open Parse;;
+> let e1 = fromString "5+7";;
+val e1: Absyn.expr = Prim ("+", CstI 5, CstI 7)
+
+> let fromString = Parse.fromString;;
+val fromString: (string -> Absyn.expr)
+
+>
+- let eval = Fun.eval;;
+val eval: (Absyn.expr -> Fun.value Fun.env -> int)
+
+>
+- let run e = eval e [];;
+val run: e: Absyn.expr -> int
+
+>
+
+
+4.2 
+ Defined in parse. 
+
+
+ >  open ParseAndRun;;
+> open Parse;;
+> run Parse.e6;;
+val it: int = 167731333
+
+> run Parse.e1;;
+val it: int = 12
+
+> run Parse.e2;;
+val it: int = 9
+
+> run Parse.e3;;
+val it: int = 500500
+
+> run Parse.e4;;
+val it: int = 6561
+
+> run Parse.e5;;
+val it: int = 265720
+
+> run Parse.e6;;
+val it: int = 16773133
