@@ -8,6 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="intcom1.fs" />
+    <Compile Include="Intcomp1.fs" />
   </ItemGroup>
 </Project>

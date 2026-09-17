@@ -6,7 +6,7 @@
 
    Performs tail recursion in constant space (because F# does).
 *)
-
+(*3.6 Compile a string to a list of stack machine instructions *)
 module Fun
 
 open Absyn

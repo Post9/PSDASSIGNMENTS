@@ -158,6 +158,12 @@ val it: Absyn.expr =
 >
 
 
+(* 3.6 Compile a string to a list of stack machine instructions *)
+let compString (s : string) : sinstr list = scomp (fromString s) []
+open Parse
+
+
+
 3.7 
 
 added 
@@ -220,3 +226,14 @@ val it: int = 265720
 
 > run Parse.e6;;
 val it: int = 16773133
+
+4.3
+
+
+Doing this makes compile errors fast fix is too rebuild, after fixing things in call and letfun in eval. Making it use lists instead
+
+4.4 
+
+putting [] makes it parse as a list. 
+
+
