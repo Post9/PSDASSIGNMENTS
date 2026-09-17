@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "kka1A2j9mW0=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\PC\\Desktop\\5. Semester\\Programmer som Data\\PSDASSIGNMENTS\\Assignments\\assignment4\\Fun\\parse.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\PC\\.nuget\\packages\\fsharp.core\\10.1.201\\fsharp.core.10.1.201.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\fslexyacc\\11.3.0\\fslexyacc.11.3.0.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\fslexyacc.runtime\\11.3.0\\fslexyacc.runtime.11.3.0.nupkg.sha512"
+  ],
+  "logs": []
+}
