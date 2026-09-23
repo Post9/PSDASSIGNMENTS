@@ -95,3 +95,81 @@ typeCheck exLErr1;;  // ConC: tail is not a list of the head's type
 typeCheck exLErr2;;  // Match: not a list
 typeCheck exLErr3;;  // Match: branch types differ
 ```
+
+6.1 
+ open ParseAndRunHigher;;
+ from the examples
+> run (fromString @"let twice f = let g x = f(f(x)) in g end
+-                   in let mul3 z = z*3 in twice mul3 2 end end");;
+val it: HigherFun.value = Int 18
+
+First 
+
+
+ run (fromString "let add x = let f y = x+y in f end
+- in add 2 5 end");;
+val it: HigherFun.value = Int 7
+
+second 
+
+run (fromString "let add x = let f y = x+y in f end
+- in let addtwo = add 2
+- in addtwo 5 end
+- end");;
+val it: HigherFun.value = Int 7
+
+
+third
+
+a function's body sees the variables from where it was declared, not from where it's called therefore, the function uses static scope or the definition of eval uses fDeclEnv.
+
+
+
+
+
+> run (fromString "let add x = let f y = x+y in f end
+-   in let addtwo = add 2
+-   in let x = 77 in addtwo 5 end
+-   end
+-   end");;
+val it: HigherFun.value = Int 7
+
+
+This one Gives a weird return thing
+
+forth 
+
+> run (fromString "let add x = let f y = x+y in f end
+-   in add 2 end");;
+val it: HigherFun.value =
+  Closure
+    ("f", "y", Prim ("+", Var "x", Var "y"),
+     [("x", Int 2);
+      ("add",
+       Closure
+         ("add", "x", Letfun ("f", "y", Prim ("+", Var "x", Var "y"), Var "f"),
+          []))])
+This returns a function that asks for the valye for y, and not a result. proper f# things
+
+so we have to eval it, with micro-ml using eval and then adding addtwoC as env?
+
+
+> eval (fromString "addtwoC 5") [("addtwoC", addtwoC)];;
+val it: HigherFun.value = Int 7
+
+
+6.2
+
+Added clos, a simpler closure for anonymous function in call in Eval. 
+
+
+
+
+6.3
+
+Added Arrow and fun to lexer
+
+> open ParseAndRunHigher;;
+> run (fromString "fun x -> 2*x");;
+val it: HigherFun.value = Clos ("x", Prim ("*", CstI 2, Var "x"), [])
+now Works with anonymous functions.

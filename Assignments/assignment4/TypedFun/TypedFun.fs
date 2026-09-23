@@ -87,7 +87,8 @@ let rec eval (e : tyexpr) (env : value env) : int =
     | If(e1, e2, e3) -> 
       let b = eval e1 env
       if b<>0 then eval e2 env else eval e3 env
-    | Letfun(f, x, _, fBody, _, letBody) -> 
+    | Letfun(f, x, _, fBody: tyexpr, _, letBody) -> 
+
       let bodyEnv = (f, Closure(f, x, fBody, env)) :: env 
       eval letBody bodyEnv
     | Call(Var f, eArg) -> 

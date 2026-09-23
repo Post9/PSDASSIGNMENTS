@@ -2,6 +2,8 @@
 module FunPar
 type token = 
   | EOF
+  | FUN
+  | ARROWINGTON
   | SEQAND
   | SEQOR
   | LPAR
@@ -31,6 +33,8 @@ type token =
   | CSTINT of (int)
 type tokenId = 
     | TOKEN_EOF
+    | TOKEN_FUN
+    | TOKEN_ARROWINGTON
     | TOKEN_SEQAND
     | TOKEN_SEQOR
     | TOKEN_LPAR

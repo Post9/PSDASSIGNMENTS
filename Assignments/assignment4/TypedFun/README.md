@@ -4,6 +4,7 @@
 
 ```bash
 dotnet fsi TypedFun.fs
+
 ```
 
 ```fsharp

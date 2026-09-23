@@ -16,6 +16,7 @@
 %token EQ NE GT LT GE LE
 %token LPAR RPAR 
 %token SEQAND SEQOR
+%token FUN ARROWINGTON
 %token EOF
 
 %left ELSE              /* lowest precedence  */
@@ -41,6 +42,7 @@ Expr:
     AtExpr                              { $1                     }
   | AppExpr                             { $1                     }
   | IF Expr THEN Expr ELSE Expr         { If($2, $4, $6)         }
+  | FUN NAME ARROWINGTON Expr         { (Fun($2,$4))}
   | MINUS Expr                          { Prim("-", CstI 0, $2)  }
   | Expr PLUS  Expr                     { Prim("+",  $1, $3)     }
   | Expr MINUS Expr                     { Prim("-",  $1, $3)     }
