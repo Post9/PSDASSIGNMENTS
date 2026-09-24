@@ -172,4 +172,4 @@ Added Arrow and fun to lexer
 > open ParseAndRunHigher;;
 > run (fromString "fun x -> 2*x");;
 val it: HigherFun.value = Clos ("x", Prim ("*", CstI 2, Var "x"), [])
-now Works with anonymous functions.
+now Works with anonymous functions. gangster stuff?
