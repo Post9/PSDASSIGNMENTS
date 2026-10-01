@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "awOGLHZvGAg=",
+  "dgSpecHash": "C346jqt4CBg=",
   "success": true,
-  "projectFilePath": "C:\\Users\\niels\\UniFiler\\5semester\\PSD\\PSDASSIGNMENTS\\Assignments\\assignment5\\microC\\parse.fsproj",
+  "projectFilePath": "C:\\Users\\niels\\UniFiler\\5semester\\PSD\\PSDASSIGNMENTS\\Assignments\\assignment5\\MicroC\\parse.fsproj",
   "expectedPackageFiles": [
     "C:\\Users\\niels\\.nuget\\packages\\fsharp.core\\10.0.112\\fsharp.core.10.0.112.nupkg.sha512",
     "C:\\Users\\niels\\.nuget\\packages\\fslexyacc\\11.3.0\\fslexyacc.11.3.0.nupkg.sha512",

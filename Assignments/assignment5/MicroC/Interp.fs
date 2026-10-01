@@ -127,6 +127,13 @@ let rec exec stmt (locEnv : locEnv) (gloEnv : gloEnv) (store : store) : store =
       let (v, store1) = eval e locEnv gloEnv store
       if v<>0 then exec stmt1 locEnv gloEnv store1
               else exec stmt2 locEnv gloEnv store1
+    // 7.3 same desugaring as in Comp.fs
+    | For(e1, e2, e3, body) ->
+      let desugared = Block [
+        Stmt (Expr e1);
+        Stmt (While(e2, Block [Stmt body; Stmt (Expr e3)]))
+      ]
+      exec desugared locEnv gloEnv store
     | While(e, body) ->
       let rec loop store1 =
               let (v, store2) = eval e locEnv gloEnv store1

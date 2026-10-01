@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\niels\\UniFiler\\5semester\\PSD\\PSDASSIGNMENTS\\Assignments\\assignment5\\microC\\parse.fsproj": {}
+    "C:\\Users\\niels\\UniFiler\\5semester\\PSD\\PSDASSIGNMENTS\\Assignments\\assignment5\\MicroC\\parse.fsproj": {}
   },
   "projects": {
-    "C:\\Users\\niels\\UniFiler\\5semester\\PSD\\PSDASSIGNMENTS\\Assignments\\assignment5\\microC\\parse.fsproj": {
+    "C:\\Users\\niels\\UniFiler\\5semester\\PSD\\PSDASSIGNMENTS\\Assignments\\assignment5\\MicroC\\parse.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\niels\\UniFiler\\5semester\\PSD\\PSDASSIGNMENTS\\Assignments\\assignment5\\microC\\parse.fsproj",
+        "projectUniqueName": "C:\\Users\\niels\\UniFiler\\5semester\\PSD\\PSDASSIGNMENTS\\Assignments\\assignment5\\MicroC\\parse.fsproj",
         "projectName": "parse",
-        "projectPath": "C:\\Users\\niels\\UniFiler\\5semester\\PSD\\PSDASSIGNMENTS\\Assignments\\assignment5\\microC\\parse.fsproj",
+        "projectPath": "C:\\Users\\niels\\UniFiler\\5semester\\PSD\\PSDASSIGNMENTS\\Assignments\\assignment5\\MicroC\\parse.fsproj",
         "packagesPath": "C:\\Users\\niels\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\niels\\UniFiler\\5semester\\PSD\\PSDASSIGNMENTS\\Assignments\\assignment5\\microC\\obj\\",
+        "outputPath": "C:\\Users\\niels\\UniFiler\\5semester\\PSD\\PSDASSIGNMENTS\\Assignments\\assignment5\\MicroC\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\niels\\AppData\\Roaming\\NuGet\\NuGet.Config"
