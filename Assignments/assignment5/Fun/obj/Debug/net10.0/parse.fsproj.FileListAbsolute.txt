@@ -1,0 +1,5 @@
+C:\Users\PC\Desktop\5. Semester\Programmer som Data\PSDASSIGNMENTS\Assignments\assignment5\Fun\obj\Debug\net10.0\parse.fsproj.AssemblyReference.cache
+C:\Users\PC\Desktop\5. Semester\Programmer som Data\PSDASSIGNMENTS\Assignments\assignment5\Fun\obj\Debug\net10.0\parse.AssemblyInfoInputs.cache
+C:\Users\PC\Desktop\5. Semester\Programmer som Data\PSDASSIGNMENTS\Assignments\assignment5\Fun\obj\Debug\net10.0\parse.AssemblyInfo.fs
+C:\Users\PC\Desktop\5. Semester\Programmer som Data\PSDASSIGNMENTS\Assignments\assignment5\Fun\obj\Debug\net10.0\parse.fsproj.CoreCompileInputs.cache
+C:\Users\PC\Desktop\5. Semester\Programmer som Data\PSDASSIGNMENTS\Assignments\assignment5\Fun\obj\Debug\net10.0\parse.sourcelink.json
