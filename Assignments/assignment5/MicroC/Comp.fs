@@ -125,12 +125,20 @@ let rec cStmt stmt (varEnv : varEnv) (funEnv : funEnv) : instr list =
       cExpr e varEnv funEnv @ [IFZERO labelse] 
       @ cStmt stmt1 varEnv funEnv @ [GOTO labend]
       @ [Label labelse] @ cStmt stmt2 varEnv funEnv
-      @ [Label labend]           
+      @ [Label labend]         
+      // 7.3 for a for loop we can just recycle the while loop gang.  
+    | For(e1, e2, e3, body) ->
+      let desugared = Block [
+        Stmt (Expr e1); 
+        Stmt (While(e2, Block [Stmt body; Stmt (Expr e3)]))
+      ]
+      cStmt desugared varEnv funEnv
     | While(e, body) ->
       let labbegin = newLabel()
       let labtest  = newLabel()
       [GOTO labtest; Label labbegin] @ cStmt body varEnv funEnv
       @ [Label labtest] @ cExpr e varEnv funEnv @ [IFNZRO labbegin]
+    
     | Expr e -> 
       cExpr e varEnv funEnv @ [INCSP -1]  (* Remove result of expression from stack, as this is a statement *)
     | Block stmts -> 

@@ -27,6 +27,7 @@ let keyword s =
     | "return"  -> RETURN
     | "true"    -> CSTBOOL 1
     | "void"    -> VOID 
+    | "for"     -> FOR
     | "while"   -> WHILE         
     | _         -> NAME s
  
