@@ -214,6 +214,9 @@ and cExpr (e : expr) (varEnv : varEnv) (funEnv : funEnv) : instr list =
    The effect of the compiled code is to leave an lvalue on the stack.   *)
 
 and cAccess access varEnv funEnv : instr list =
+    // we could either add it here or in the eval ? this is what is called in eval 
+    // i mean is it not just Deref? i don't think we need to change anything here? other than adding another match to eval?
+    
     match access with 
     | AccVar x ->
       match lookup (fst varEnv) x with

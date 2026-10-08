@@ -13,10 +13,13 @@ type typ =
   | TypA of typ * int option         (* Array type                  *)
   | TypP of typ                      (* Pointer type                *)
                                                                    
+
 and expr =                                                         
   | Access of access                 (* x    or  *p    or  a[e]     *)
   | Assign of access * expr          (* x=e  or  *p=e  or  a[e]=e   *)
   | Addr of access                   (* &x   or  &*p   or  &a[e]    *)
+  | PreDec of access                 (* C/C++/Java/C# --i or --a[e] *)
+  | PreInc of access                 (* C/C++/Java/C# ++i or ++a[e] *)
   | CstI of int                      (* Constant                    *)
   | Prim1 of string * expr           (* Unary primitive operator    *)
   | Prim2 of string * expr * expr    (* Binary primitive operator   *)
@@ -28,6 +31,7 @@ and access =
   | AccVar of string                 (* Variable access        x    *) 
   | AccDeref of expr                 (* Pointer dereferencing  *p   *)
   | AccIndex of access * expr        (* Array indexing         a[e] *)
+
                                                                    
 and stmt =                                                         
   | If of expr * stmt * stmt         (* Conditional                 *)

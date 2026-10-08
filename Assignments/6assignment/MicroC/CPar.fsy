@@ -16,6 +16,7 @@ let nl = CstI 10
 
 %token CHAR ELSE IF INT NULL PRINT PRINTLN RETURN VOID WHILE
 %token PLUS MINUS TIMES DIV MOD
+%token DOUBLEPLUS DOUBLEMINUS
 %token EQ NE GT LT GE LE
 %token NOT SEQOR SEQAND
 %token LPAR RPAR LBRACE RBRACE LBRACK RBRACK SEMI COMMA ASSIGN AMP
@@ -139,14 +140,17 @@ AtExprNotAccess:
     Const                               { CstI $1             }
   | LPAR ExprNotAccess RPAR             { $2                  } 
   | AMP Access                          { Addr $2             }
-;
+  | DOUBLEPLUS Access                   { PreInc $2           }
+  | DOUBLEMINUS Access                  { PreDec $2           }
+  ;
 
 Access:
     NAME                                { AccVar $1           }
   | LPAR Access RPAR                    { $2                  }  
   | TIMES Access                        { AccDeref (Access $2)}
   | TIMES AtExprNotAccess               { AccDeref $2         }
-  | Access LBRACK Expr RBRACK           { AccIndex($1, $3)    }   
+  | Access LBRACK Expr RBRACK           { AccIndex($1, $3)    } 
+
 ;
 
 Exprs:
