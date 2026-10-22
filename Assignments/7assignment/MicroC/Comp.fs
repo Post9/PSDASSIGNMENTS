@@ -210,13 +210,16 @@ and cExpr (e : expr) (varEnv : varEnv) (funEnv : funEnv) : instr list =
       @ cExpr e2 varEnv funEnv
       @ [GOTO labend; Label labtrue; CSTI 1; Label labend]
     | Call(f, es) -> callfun f es varEnv funEnv
+    // took the if statement from stmn and rewrote it as Cond. 
+    // expr and statment have diffrent stack properties or no something with the branches, +1 vs not 0.abs
+    
     | Cond(e1, e2, e3) -> 
       let labelse = newLabel()
       let labend  = newLabel()
-      cExpr e varEnv funEnv @ [IFZERO labelse] 
+      cExpr e1 varEnv funEnv @ [IFZERO labelse] 
       @ cExpr e2 varEnv funEnv @ [GOTO labend]
       @ [Label labelse] @ cExpr e3 varEnv funEnv
-      @ [Label labend]           
+      @ [Label labend] 
 
 (* Generate code to access variable, dereference pointer or index array.
    The effect of the compiled code is to leave an lvalue on the stack.   *)
