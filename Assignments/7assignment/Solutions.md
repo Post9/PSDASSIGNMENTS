@@ -1,4 +1,18 @@
-﻿9.1
+﻿8.5
+
+updated parser and lexer and Comp.fs with the logic
+, if statement reused.
+important that Questionmark and Colon is low assosiativity ( cant spell fs). %right
+
+8.6 
+
+updated lexer parser absyn and comp, for switch and case. 
+
+
+
+
+
+9.1
 The bytecode is in each of these files:
 (i) Virtual/Selsort/Selsort.il/Selsort.il
 (ii) Virtual/Selsort/Selsort.jvmbytecode

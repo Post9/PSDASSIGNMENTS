@@ -36,7 +36,7 @@ and stmt =
   | Expr of expr                     (* Expression statement   e;   *)
   | Return of expr option            (* Return from method          *)
   | Block of stmtordec list          (* Block: grouping and scope   *)
-  | Switch of expr * (stmt * expr) list (* switch idk if its supposed to be a list or finite, with three cases*)
+  | Switch of expr * (int * stmt) list  (* switch (e) { case n: {...} ... }, no fall-through *)
                                                                    
 and stmtordec =                                                    
   | Dec of typ * string              (* Local variable declaration  *)

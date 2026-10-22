@@ -131,6 +131,22 @@ let rec cStmt stmt (varEnv : varEnv) (funEnv : funEnv) : instr list =
       let labtest  = newLabel()
       [GOTO labtest; Label labbegin] @ cStmt body varEnv funEnv
       @ [Label labtest] @ cExpr e varEnv funEnv @ [IFNZRO labbegin]
+      
+    | Switch(e1, cases) ->
+      let labend = newLabel()
+      let rec cCases cases =
+          match cases with
+          | [] -> [INCSP -1]                      // no case matched: drop the value
+          | (n, body) :: rest ->
+              let labnext = newLabel()
+              [DUP; CSTI n; EQ; IFZERO labnext]   // value == n ?
+              @ [INCSP -1]                        // match: drop value before body
+              @ cStmt body varEnv funEnv
+              @ [GOTO labend]                     // no fall-through
+              @ [Label labnext]
+              @ cCases rest                       // try the next case
+      cExpr e1 varEnv funEnv @ cCases cases @ [Label labend]
+      
     | Expr e -> 
       cExpr e varEnv funEnv @ [INCSP -1]  (* Remove result of expression from stack, as this is a statement *)
     | Block stmts -> 
@@ -212,7 +228,7 @@ and cExpr (e : expr) (varEnv : varEnv) (funEnv : funEnv) : instr list =
     | Call(f, es) -> callfun f es varEnv funEnv
     // took the if statement from stmn and rewrote it as Cond. 
     // expr and statment have diffrent stack properties or no something with the branches, +1 vs not 0.abs
-    
+
     | Cond(e1, e2, e3) -> 
       let labelse = newLabel()
       let labend  = newLabel()

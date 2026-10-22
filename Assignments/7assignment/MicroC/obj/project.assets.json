@@ -246,9 +246,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\7assignment\\MicroC\\microcc.fsproj",
-      "projectName": "microcc",
-      "projectPath": "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\7assignment\\MicroC\\microcc.fsproj",
+      "projectUniqueName": "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\7assignment\\MicroC\\parse.fsproj",
+      "projectName": "parse",
+      "projectPath": "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\7assignment\\MicroC\\parse.fsproj",
       "packagesPath": "C:\\Users\\niels\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\7assignment\\MicroC\\obj\\",
       "projectStyle": "PackageReference",
