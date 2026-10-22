@@ -160,6 +160,12 @@ and eval e locEnv gloEnv store : int * store =
                         (res, setSto store2 loc res) 
     | CstI i         -> (i, store)
     | Addr acc       -> access acc locEnv gloEnv store
+    // wrong not, not nessary? 
+    | Cond (e1,e2,e3) ->  
+      let (v, store1) = eval e1 locEnv gloEnv store
+      if v <> 0 then eval e2 locEnv gloEnv store1
+      else eval e3 locEnv gloEnv store1
+
     | Prim1(ope, e1) ->
       let (i1, store1) = eval e1 locEnv gloEnv store
       let res =

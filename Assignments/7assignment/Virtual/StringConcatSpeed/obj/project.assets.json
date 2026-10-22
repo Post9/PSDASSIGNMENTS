@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\GithubRepo\\ProgrammingLanguageConcepts-main\\plcFSharp\\Virtual\\StringConcatSpeed\\StringConcatSpeed.csproj",
+      "projectUniqueName": "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\7assignment\\Virtual\\StringConcatSpeed\\StringConcatSpeed.csproj",
       "projectName": "StringConcatSpeed",
-      "projectPath": "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\GithubRepo\\ProgrammingLanguageConcepts-main\\plcFSharp\\Virtual\\StringConcatSpeed\\StringConcatSpeed.csproj",
+      "projectPath": "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\7assignment\\Virtual\\StringConcatSpeed\\StringConcatSpeed.csproj",
       "packagesPath": "C:\\Users\\niels\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\GithubRepo\\ProgrammingLanguageConcepts-main\\plcFSharp\\Virtual\\StringConcatSpeed\\obj\\",
+      "outputPath": "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\7assignment\\Virtual\\StringConcatSpeed\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

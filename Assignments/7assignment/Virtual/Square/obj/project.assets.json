@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\GithubRepo\\ProgrammingLanguageConcepts-main\\plcFSharp\\Virtual\\Square\\Square.csproj",
+      "projectUniqueName": "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\7assignment\\Virtual\\Square\\Square.csproj",
       "projectName": "Square",
-      "projectPath": "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\GithubRepo\\ProgrammingLanguageConcepts-main\\plcFSharp\\Virtual\\Square\\Square.csproj",
+      "projectPath": "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\7assignment\\Virtual\\Square\\Square.csproj",
       "packagesPath": "C:\\Users\\niels\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\GithubRepo\\ProgrammingLanguageConcepts-main\\plcFSharp\\Virtual\\Square\\obj\\",
+      "outputPath": "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\7assignment\\Virtual\\Square\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

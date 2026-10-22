@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\GithubRepo\\ProgrammingLanguageConcepts-main\\plcFSharp\\Virtual\\CircularQueue\\CircularQueue.csproj": {}
+    "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\7assignment\\Virtual\\CircularQueue\\CircularQueue.csproj": {}
   },
   "projects": {
-    "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\GithubRepo\\ProgrammingLanguageConcepts-main\\plcFSharp\\Virtual\\CircularQueue\\CircularQueue.csproj": {
+    "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\7assignment\\Virtual\\CircularQueue\\CircularQueue.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\GithubRepo\\ProgrammingLanguageConcepts-main\\plcFSharp\\Virtual\\CircularQueue\\CircularQueue.csproj",
+        "projectUniqueName": "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\7assignment\\Virtual\\CircularQueue\\CircularQueue.csproj",
         "projectName": "CircularQueue",
-        "projectPath": "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\GithubRepo\\ProgrammingLanguageConcepts-main\\plcFSharp\\Virtual\\CircularQueue\\CircularQueue.csproj",
+        "projectPath": "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\7assignment\\Virtual\\CircularQueue\\CircularQueue.csproj",
         "packagesPath": "C:\\Users\\niels\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\GithubRepo\\ProgrammingLanguageConcepts-main\\plcFSharp\\Virtual\\CircularQueue\\obj\\",
+        "outputPath": "C:\\Users\\niels\\UniFiles\\5_semester\\Programsdata\\Assignments\\Assignments\\7assignment\\Virtual\\CircularQueue\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
