@@ -1,11 +1,13 @@
 ﻿Exercise 11.1
 
-(i) Write a continuation-passing (CPS) version lenc : ’a list -> int
--> ’b) -> ’b of the list length function len:
+(i) 
+Write a continuation-passing (CPS) version lenc : ’a list -> int -> ’b) -> ’b of the list length function len:
+
 let rec len xs =
 match xs with
 | [] -> 0
 | x::xr -> 1 + len xr;;
+
 Try calling the resulting function with lenc [2; 5; 7] id, where the initial continuation let id = fun v -> v is 
 the identity function, and with lenc [2; 5; 7] (printf "The answer is ’%d’\n"), where
 the initial continuation consumes the result and prints it.
@@ -26,10 +28,14 @@ let rec rev xs =
 match xs with
 | [] -> []
 | x::xr -> rev xr @ [x];;
-The resulting function revc should have type ’a list -> (’a list
--> ’a list) -> ’a list or a more general type such as ’a list
--> (’a list -> ’b) -> ’b. The function may be called as revc xs
-id, where let id = fun v -> v is the identity function.
+The resulting function revc should have type 
+’a list -> (’a list -> ’a list) -> ’a list 
+
+or a more general type such as 
+’a list-> (’a list -> ’b) -> ’b. 
+
+The function may be called as revc xs id, 
+where let id = fun v -> v is the identity function.
 
 (ii) What happens if you call it as revc xs (fun v -> v @ v) instead?
 
@@ -41,8 +47,9 @@ which should be called as revi xs [].
 
 Exercise 11.3 
 
-Write a continuation-passing version prodc : int list ->
-(int -> int) -> int of the list product function prod:
+Write a continuation-passing version prodc : int list -> (int -> int) -> int 
+of the list product function prod:
+
 let rec prod xs =
 match xs with
 | [] -> 1
@@ -52,9 +59,11 @@ match xs with
 
 Exercise 11.4 
 
-Optimize the CPS version of the prod function above. It could terminate as soon as it encounters a zero in the list (because any list containing a zero
+Optimize the CPS version of the prod function above. 
+It could terminate as soon as it encounters a zero in the list (because any list containing a zero
 will have product zero), assuming that its continuation simply multiplies the result
-by some factor. Try calling it in the same two ways as the lenc function in Exercise 11.1. Note that even if the non-tail-recursive prod were improved to return 0
+by some factor. Try calling it in the same two ways as the lenc function in Exercise 11.1. 
+Note that even if the non-tail-recursive prod were improved to return 0
 when encountering a 0, the returned 0 would still be multiplied by all the x values
 previously encountered.
 Write a tail-recursive version prodi of the prod function that also terminates
