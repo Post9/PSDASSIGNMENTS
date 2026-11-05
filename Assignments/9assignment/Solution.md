@@ -6,6 +6,10 @@ Code is in Ex1.fsx file
 
 (i)
 Answer is 3
+Trace of lenc [2; 5; 7] id:
+
+lenc [2; 5; 7] id
+= lenc []
 
 (ii)
 The Answer will be 6
