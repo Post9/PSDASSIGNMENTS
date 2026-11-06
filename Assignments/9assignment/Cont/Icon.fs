@@ -31,6 +31,7 @@ type expr =
   | Write of expr
   | If of expr * expr * expr
   | Prim of string * expr * expr 
+  | Prim1 of string * expr                 (* 11.8 unary primitives *)
   | And of expr * expr
   | Or  of expr * expr
   | Seq of expr * expr
@@ -87,6 +88,19 @@ let rec eval (e : expr) (cont : cont) (econt : econt) =
                       econt2 ()
               | _ -> Str "unknown prim2")
               econt1)
+          econt
+    // 11.8 (iii) + (iv) unary primitives
+    | Prim1(ope, e1) ->
+      eval e1 (fun v1 -> fun econt1 ->
+          match (ope, v1) with
+          | ("sqr", Int i) -> cont (Int(i*i)) econt1
+          | ("even", Int i) ->
+              if i % 2 = 0 then cont (Int i) econt1
+              else econt1 ()
+          | ("multiples", Int i) ->
+              let rec loop n = cont (Int(i*n)) (fun () -> loop (n+1))
+              loop 1
+          | _ -> Str "unknown prim1")
           econt
     | And(e1, e2) -> 
       eval e1 (fun _ -> fun econt1 -> eval e2 cont econt1) econt
